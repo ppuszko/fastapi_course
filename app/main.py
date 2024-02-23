@@ -5,6 +5,7 @@ from .database import engine
 from .routers import post, user, auth, vote
 
 
+
 #models.Base.metadata.create_all(bind=engine) it was used to create connection and tables in poetgres using sqlalchemy, 
 # although currently alembic does this with more features and flexibility, co i leave it for educational purposes
 
@@ -16,6 +17,10 @@ app = FastAPI() #initializes app instance
 #to include migrations to our database(e.g. adding a new column to already existing postres table, the alembic tool is needed. 
 # after instalation, it is required to initialize it, and create a folder for it, which can be done by this command: 
 # alembic init alembic(it is a folder name, can be named however i want))
+
+
+
+
 origins = ["*"] #allows every domain to reach my app, i can also list domains i want to allow
 
 app.add_middleware(
@@ -36,6 +41,6 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message": "Hello World bro it works"}
+    return {"message": "Hello World bro it works!!!!!!!!!!!"}
 
 

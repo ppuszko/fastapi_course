@@ -4,12 +4,10 @@ from sqlalchemy.ext.declarative import declarative_base, DeclarativeMeta
 from sqlalchemy.orm import sessionmaker
 
 from .config import settings
-import os 
-import psycopg2
+
 SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
 
-DATABASE_URL = os.environ['postgres://qeznsfplnxrjsr:5d6489d311adc0a9478b2784ad2934cd180e86b17631bcf459f382fa4dfc1147@ec2-107-20-161-24.compute-1.amazonaws.com:5432/d7tuankkaeaauc']
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
